@@ -6,6 +6,12 @@
        (lambda ()
          (setq expand-region-smart-cursor t)))
 
+(And "^rust-ts-mode is enabled$"
+     (lambda ()
+       (setq treesit-extra-load-path
+             (list "features/support/treesit"))
+       (rust-ts-mode)))
+
 (When "^I expand the region$"
       (lambda ()
         (cl-flet ((message (&rest args) nil))
